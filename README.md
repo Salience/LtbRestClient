@@ -1,2 +1,2 @@
 # LtbRestClient
-A client library for LicenceToBill's REST API.
+A .NET client library for LicenceToBill's REST API.
