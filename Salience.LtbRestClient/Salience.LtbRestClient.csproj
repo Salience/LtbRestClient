@@ -53,13 +53,14 @@
   <ItemGroup>
     <Compile Include="Constants.cs" />
     <Compile Include="DTO\ActiveDeal.cs" />
+    <Compile Include="DTO\CardPermission.cs" />
     <Compile Include="DTO\Deal.cs" />
     <Compile Include="DTO\Feature.cs" />
     <Compile Include="DTO\Offer.cs" />
     <Compile Include="DTO\ActiveStage.cs" />
     <Compile Include="DTO\Stage.cs" />
     <Compile Include="DTO\User.cs" />
-    <Compile Include="DTO\WebhookCallback.cs" />
+    <Compile Include="DTO\WebhookCallbackMessage.cs" />
     <Compile Include="IAsyncLtbClient.cs" />
     <Compile Include="ILtbClient.cs" />
     <Compile Include="Internal\UnderscorePropertyNamesContractResolver.cs" />
