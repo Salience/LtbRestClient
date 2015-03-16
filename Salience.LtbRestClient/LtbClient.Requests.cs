@@ -53,7 +53,7 @@ namespace Salience.LtbRestClient
                     {
                         key_user = keyUser,
                         name_user = nameUser,
-                        Lcid = lcid
+                        lcid_user = lcid
                     }))
                 .Expecting<User>();
         }
