@@ -41,7 +41,8 @@ namespace Salience.LtbRestClient
         {
             return To("load a user")
                 .Get("/v2/users/{key_user}", r => r.AddUrlSegment("key_user", keyUser))
-                .Expecting<User>();
+                .Expecting<User>()
+                .OrDefaultIfNotFound();
         }
 
         private IExecutableRequest<User> DeclareUserRequest(string keyUser, string nameUser, int lcid)
@@ -78,7 +79,8 @@ namespace Salience.LtbRestClient
         {
             return To("load all users having access to a feature")
                 .Get("/v2/users/features/{key_feature}", r => r.AddUrlSegment("key_feature", keyFeature))
-                .Expecting<User[]>();
+                .Expecting<User[]>()
+                .OrIfNotFound(new User[0]);
         }
 
         private IExecutableRequest<Feature[]> GetFeaturesRequest(int lcid)
@@ -92,7 +94,8 @@ namespace Salience.LtbRestClient
         {
             return To("load all features accessible to a user")
                 .Get("/v2/features/users/{key_user}", r => r.AddUrlSegment("key_user", keyUser))
-                .Expecting<Feature[]>();
+                .Expecting((Feature[] features) => features ?? new Feature[0])
+                .OrIfNotFound(new Feature[0]);
         }
 
         private IExecutableRequest<Feature> GetLimitationRequest(string keyFeature, string keyUser)
@@ -101,7 +104,8 @@ namespace Salience.LtbRestClient
                 .Get("/v2/features/{key_feature}/users/{key_user}", r => r
                     .AddUrlSegment("key_feature", keyFeature)
                     .AddUrlSegment("key_user", keyUser))
-                .Expecting<Feature>();
+                .Expecting<Feature>()
+                .OrDefaultIfNotFound();
         }
 
         private IExecutableRequest<Offer[]> GetOffersRequest(int lcid, bool? visible)
@@ -125,14 +129,16 @@ namespace Salience.LtbRestClient
                     if(visible.HasValue)
                         r.AddParameter("visible", visible.Value);
                 })
-                .Expecting<Offer[]>();
+                .Expecting<Offer[]>()
+                .OrIfNotFound(new Offer[0]);
         }
 
         private IExecutableRequest<Deal[]> GetDealsByUserRequest(string keyUser)
         {
             return To("load deals concluded by a user")
                 .Get("/v2/deals/users/{key_user}", r => r.AddUrlSegment("key_user", keyUser))
-                .Expecting<Deal[]>();
+                .Expecting<Deal[]>()
+                .OrIfNotFound(new Deal[0]);
         }
     }
 }
