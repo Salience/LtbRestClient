@@ -38,9 +38,9 @@
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.105.0.1\lib\net4\RestSharp.dll</HintPath>
     </Reference>
-    <Reference Include="Salience.FluentApi, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Salience.FluentApi, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Salience.FluentApi.1.2.1\lib\net45\Salience.FluentApi.dll</HintPath>
+      <HintPath>..\packages\Salience.FluentApi.1.3.0\lib\net45\Salience.FluentApi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
